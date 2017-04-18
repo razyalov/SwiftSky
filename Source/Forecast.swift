@@ -80,9 +80,26 @@ public struct Forecast {
     /// `Metadata` for this forecast
     public let metadata : Metadata?
     
-    init(_ data : Any?, headers : [AnyHashable : Any]?) {
+    /// Creates new `Forecast` object from an old `Forecast` object, and applies new settings
+    public func reloadSettings() -> Forecast? {
+        return Forecast(data: data)
+    }
+    
+    /// `Data` object for storing
+    public let data : Data?
+    
+    /// Initialize `Forecast` object from `Data`
+    public init(data : Data?) {
+        guard data != nil, let forecastData = NSKeyedUnarchiver.unarchiveObject(with: data!) as? [String : Any?] else {
+            self.init(nil, headers: nil)
+            return
+        }
+        self.init(forecastData["json"] ?? nil, headers: forecastData["headers"] as? [AnyHashable : Any])
+    }
+    
+    init(_ jsonData : Any?, headers : [AnyHashable : Any]?) {
         
-        guard let json = data as? Dictionary<String,Any>,
+        guard let json = jsonData as? Dictionary<String,Any>,
             let flags = json["flags"] as? Dictionary<String,Any> else {
             location = nil
             timezone = nil
@@ -92,8 +109,11 @@ public struct Forecast {
             days = nil
             metadata = nil
             alerts = nil
+            data = nil
             return
         }
+        
+        data = NSKeyedArchiver.archivedData(withRootObject: [ "json" : json, "headers" : headers ] as [String : Any?])
         
         let units = ApiUnitProfile(flags["units"] as? String ?? "us")
         

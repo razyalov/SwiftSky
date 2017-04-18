@@ -251,6 +251,7 @@ class RegularGetTest : QuickSpec {
     
     override func tearDown() {
         SwiftSky.secret = nil
+        SwiftSky.units.temperature = .fahrenheit
         OHHTTPStubs.removeAllStubs()
         super.tearDown()
     }
@@ -280,6 +281,17 @@ class RegularGetTest : QuickSpec {
                             done()
                         }
                     }
+                    
+                    expect(response?.current?.temperature?.current?.value).to(equal(48.71))
+                    expect(Forecast(data: response?.data).current?.temperature?.current?.value).to(equal(48.71))
+                    
+                    let wrong : [String : Any?] = ["josn":nil,"headers":nil]
+                    expect(Forecast(data: NSKeyedArchiver.archivedData(withRootObject: wrong))).notTo(beNil())
+                    expect(Forecast(data: nil)).notTo(beNil())
+                    
+                    SwiftSky.units.temperature = .celsius
+                    expect(response?.reloadSettings()?.current?.temperature?.current?.value).to(equal((48.71 - 32) * (5/9)))
+                    
                     expect(response).notTo(beNil())
                     expect(error).to(beNil())
                 })

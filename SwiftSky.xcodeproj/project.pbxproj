@@ -193,6 +193,7 @@
 		8103C20E1EA3B8D400EFD054 /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Units.swift; path = Source/Units.swift; sourceTree = SOURCE_ROOT; };
 		8103C20F1EA3B8D400EFD054 /* Wind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wind.swift; path = Source/Wind.swift; sourceTree = SOURCE_ROOT; };
 		81067E901E9EBEA700DAFF7E /* SwiftSky.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftSky.podspec; sourceTree = "<group>"; };
+		811321C41EA665230080E873 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		811A1F521E9E99FD005A1B11 /* SwiftSky iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftSky iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		811A1F611E9E9A58005A1B11 /* SwiftSky tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftSky tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		811A1F8B1E9EA55E005A1B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -321,6 +322,7 @@
 				8128AD6B1EA0251B005CA4AA /* .gitignore */,
 				819788311E9EFBD60088C39D /* .swift-version */,
 				813F85951EA462B6007B269B /* prepare-commit.sh */,
+				811321C41EA665230080E873 /* CHANGELOG.md */,
 			);
 			name = Metadata;
 			sourceTree = "<group>";
