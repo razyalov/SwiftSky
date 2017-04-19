@@ -194,4 +194,6 @@ However, please follow these rules:
 
 Are you using the framework and would like to see it being maintained and updated? Please consider helping me do exactly that by donating using the button below.
 
-[![Donate](https://pledgie.com/campaigns/33707.png?skin_name=chrome)](https://pledgie.com/campaigns/33707)
+[<img alt="Donate" src="https://www.paypalobjects.com/webstatic/mktg/merchant_portal/button/donate.en.png" height="32px">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9QSB8QX9QFM9Q "Donate")
+
+
