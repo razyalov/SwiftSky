@@ -271,7 +271,8 @@ public struct SwiftSky {
         let url = ApiUrl(located, date: date, exclude: exclude).url
         
         // perform request
-        request(url, method: .get, headers: ["Accept-Encoding":"gzip"]).responseJSON { response in
+        guard url != nil else { return completion(.failure(.noApiKey)) }
+        request(url!, method: .get, headers: ["Accept-Encoding":"gzip"]).responseJSON { response in
             switch response.result {
             case .success(let data):
                 completion(.success(Forecast(data, headers: response.response?.allHeaderFields)))

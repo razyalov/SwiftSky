@@ -12,7 +12,7 @@ import CoreLocation
 struct ApiUrl {
     
     private let base = "https://api.darksky.net/forecast"
-    let url : URL
+    let url : URL?
     
     init(_ location: Location, date : Date?, exclude : [DataType]) {
         
@@ -41,7 +41,7 @@ struct ApiUrl {
         }
         
         builder?.queryItems = items
-        url = builder!.url!
+        url = builder?.url
         
     }
     
