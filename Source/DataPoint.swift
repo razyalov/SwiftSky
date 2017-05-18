@@ -175,7 +175,7 @@ public struct DataPoint {
         let sunriseTime = json["sunriseTime"] as? Double
         self.sunrise = (sunriseTime != nil ? Date(timeIntervalSince1970: sunriseTime!) : nil)
         
-        let sunsetTime = json["sunriseTime"] as? Double
+        let sunsetTime = json["sunsetTime"] as? Double
         self.sunset = (sunriseTime != nil ? Date(timeIntervalSince1970: sunsetTime!) : nil)
         
         self.summary = json["summary"] as? String
