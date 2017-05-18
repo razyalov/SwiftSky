@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="1.0000000000000000" branch-rate="1.0000000000000000" lines-covered="725" lines-valid="725" branches-covered="0" branches-valid="0" complexity="0.0" timestamp="1492528912" version="Slather 2.4.1">
+<coverage line-rate="1.0000000000000000" branch-rate="1.0000000000000000" lines-covered="726" lines-valid="726" branches-covered="0" branches-valid="0" complexity="0.0" timestamp="1495133186" version="Slather 2.4.1">
   <sources>
-    <source>/Users/luca/Projects/SwiftSky</source>
+    <source>/Users/luca/Desktop/SwiftSky</source>
   </sources>
   <packages>
     <package name="Source" line-rate="1.0000000000000000" branch-rate="1.0000000000000000" complexity="0.0">
@@ -643,19 +643,20 @@
             <line number="273" branch="false" hits="7"/>
             <line number="274" branch="false" hits="7"/>
             <line number="275" branch="false" hits="7"/>
-            <line number="276" branch="false" hits="4"/>
+            <line number="276" branch="false" hits="7"/>
             <line number="277" branch="false" hits="4"/>
-            <line number="278" branch="false" hits="3"/>
-            <line number="279" branch="false" hits="1"/>
+            <line number="278" branch="false" hits="4"/>
+            <line number="279" branch="false" hits="3"/>
             <line number="280" branch="false" hits="1"/>
             <line number="281" branch="false" hits="1"/>
-            <line number="282" branch="false" hits="3"/>
-            <line number="283" branch="false" hits="2"/>
+            <line number="282" branch="false" hits="1"/>
+            <line number="283" branch="false" hits="3"/>
             <line number="284" branch="false" hits="2"/>
-            <line number="285" branch="false" hits="7"/>
+            <line number="285" branch="false" hits="2"/>
             <line number="286" branch="false" hits="7"/>
             <line number="287" branch="false" hits="7"/>
             <line number="288" branch="false" hits="7"/>
+            <line number="289" branch="false" hits="7"/>
           </lines>
         </class>
         <class name="Temperature" filename="Source/Temperature.swift" line-rate="1.0000000000000000" branch-rate="1.0000000000000000" complexity="0.0">
