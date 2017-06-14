@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [1.2.0](https://github.com/appcompany/SwiftSky/releases/tag/1.1.1)
+## [1.2.0](https://github.com/appcompany/SwiftSky/releases/tag/1.2.0)
 
 #### Added
 - Added UV Index
