@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 /// A type of data in a `Forecast`
 public enum DataType : String {
@@ -52,11 +53,11 @@ public struct DataBlock {
      */
     public let icon : String?
     
-    init(_ json : Dictionary<String,Any>, units : ApiUnitProfile) {
+    init(_ json : Dictionary<String,Any>, units : ApiUnitProfile, origin : CLLocation?) {
         if let array = json["data"] as? Array<Dictionary<String,Any>> {
             var dataPoints : [DataPoint] = []
             for point in array {
-                dataPoints.append(DataPoint(point, units: units))
+                dataPoints.append(DataPoint(point, units: units, origin: origin))
             }
             points = dataPoints
         } else { points = [] }

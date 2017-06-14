@@ -59,34 +59,39 @@ class ExtraDataTest : QuickSpec {
         
         describe("wind") { 
             it("should have no data") {
-                let wind = Wind(bearing: nil, speed: nil)
+                let wind = Wind(bearing: nil, speed: nil, gust: nil)
                 expect(wind.hasData).to(equal(false))
             }
             
             it("should have bearing") {
-                let wind = Wind(bearing: bearing, speed: nil)
+                let wind = Wind(bearing: bearing, speed: nil, gust: nil)
                 expect(wind.hasData).to(equal(true))
             }
             
             it("should have speed") {
-                let wind = Wind(bearing: nil, speed: Speed(10, withUnit: .meterPerSecond))
+                let wind = Wind(bearing: nil, speed: Speed(10, withUnit: .meterPerSecond), gust: nil)
+                expect(wind.hasData).to(equal(true))
+            }
+            
+            it("should have gust") {
+                let wind = Wind(bearing: nil, speed: nil, gust: Speed(10, withUnit: .meterPerSecond))
                 expect(wind.hasData).to(equal(true))
             }
         }
         
         describe("storm") {
             it("should have no data") {
-                let wind = Storm(bearing: nil, distance: nil)
+                let wind = Storm(bearing: nil, distance: nil, origin: nil)
                 expect(wind.hasData).to(equal(false))
             }
 
             it("should have speed") {
-                let wind = Storm(bearing: bearing, distance: nil)
+                let wind = Storm(bearing: bearing, distance: nil, origin: nil)
                 expect(wind.hasData).to(equal(true))
             }
             
             it("should have distance") {
-                let wind = Storm(bearing: nil, distance: Distance(100, withUnit: .meter))
+                let wind = Storm(bearing: nil, distance: Distance(100, withUnit: .meter), origin: nil)
                 expect(wind.hasData).to(equal(true))
             }
         }

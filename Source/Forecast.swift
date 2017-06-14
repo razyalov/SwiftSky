@@ -126,19 +126,19 @@ public struct Forecast {
         } else { timezone = nil }
         
         if let currently = json["currently"] as? Dictionary<String,Any> {
-            current = DataPoint(currently, units: units)
+            current = DataPoint(currently, units: units, origin: location)
         } else { current = nil }
         
         if let minutely = json["minutely"] as? Dictionary<String,Any> {
-            minutes = DataBlock(minutely, units: units)
+            minutes = DataBlock(minutely, units: units, origin: location)
         } else { minutes = nil }
         
         if let hourly = json["hourly"] as? Dictionary<String,Any> {
-            hours = DataBlock(hourly, units: units)
+            hours = DataBlock(hourly, units: units, origin: location)
         } else { hours = nil }
         
         if let daily = json["daily"] as? Dictionary<String,Any> {
-            days = DataBlock(daily, units: units)
+            days = DataBlock(daily, units: units, origin: location)
         } else { days = nil }
         
         if let alertArray = json["alerts"] as? Array<Dictionary<String,Any>> {

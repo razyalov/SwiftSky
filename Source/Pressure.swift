@@ -12,15 +12,13 @@ import Foundation
 public struct Pressure {
     
     /// `Float` representing atmospheric pressure
-    public let value : Float
+    private(set) public var value : Float = 0
     
     /// `PressureUnit` of the value
     public let unit : PressureUnit
     
     /// Human-readable representation of the value and unit together
-    public var label : String {
-        return label(as: unit)
-    }
+    public var label : String { return label(as: unit) }
     
     /**
      Same as `Pressure.label`, but converted to a specific unit
@@ -29,11 +27,14 @@ public struct Pressure {
      - returns: String
      */
     public func label(as unit : PressureUnit) -> String {
+        let converted = (self.unit == unit ? value : convert(value, from: self.unit, to: unit))
         switch unit {
         case .millibar:
-            return "\(value.noDecimal) mb"
+            return "\(converted.noDecimal) mb"
         case .hectopascal:
-            return "\(value.noDecimal) hPa"
+            return "\(converted.noDecimal) hPa"
+        case .inchesOfMercury:
+            return "\(converted.oneDecimal) inHg"
         }
     }
     
@@ -44,11 +45,43 @@ public struct Pressure {
      - returns: Float
      */
     public func value(as unit : PressureUnit) -> Float {
-        return value
+        return convert(value, from: self.unit, to: unit)
+    }
+    
+    private func convert(_ value : Float, from : PressureUnit, to : PressureUnit) -> Float {
+        switch from {
+        case .millibar:
+            switch to {
+            case .millibar:
+                return value
+            case .hectopascal:
+                return value
+            case .inchesOfMercury:
+                return value * 0.02953
+            }
+        case .hectopascal:
+            switch to {
+            case .hectopascal:
+                return value
+            case .millibar:
+                return value
+            case .inchesOfMercury:
+                return value * 0.02953
+            }
+        case .inchesOfMercury:
+            switch to {
+            case .inchesOfMercury:
+                return value
+            case .millibar:
+                return value / 0.02953
+            case .hectopascal:
+                return value / 0.02953
+            }
+        }
     }
     
     init(_ value : Float, withUnit : PressureUnit) {
         unit = SwiftSky.units.pressure
-        self.value = value
+        self.value = convert(value, from: withUnit, to: unit)
     }
 }

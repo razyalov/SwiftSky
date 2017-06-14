@@ -22,8 +22,8 @@ abstract_target 'Framework' do
   
   abstract_target 'Testing' do
     pod 'OHHTTPStubs/Swift'
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'Quick', '~> 1.1.0'
+    pod 'Nimble', '~> 6.1.0'
     
     target 'SwiftSky iOS Tests' do
       platform :ios, '8.0'

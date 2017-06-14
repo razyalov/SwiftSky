@@ -108,13 +108,13 @@
       "dewPoint": 46.79,
       "humidity": 0.95,
       "windSpeed": 4.26,
+      "windGust": 4.26,
       "windBearing": 150,
       "visibility": 4.02,
       "cloudCover": 0.77,
       "pressure": 1009.35,
       "ozone": 326.69
     },{
-      "time": 1453363200,
       "summary": "Rain throughout the day.",
       "icon": "rain",
       "sunriseTime": 1453391560,

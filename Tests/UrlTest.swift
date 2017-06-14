@@ -11,7 +11,17 @@ import Nimble
 @testable import SwiftSky
 
 class UrlTest : QuickSpec {
-
+    
+    override func tearDown() {
+        SwiftSky.secret = nil
+        super.tearDown()
+    }
+    
+    override func setUp() {
+        SwiftSky.secret = "NO_API_KEY"
+        super.setUp()
+    }
+    
     override func spec() {
         
         describe("url") {
@@ -37,8 +47,13 @@ class UrlTest : QuickSpec {
                 expect(ApiUrl(location, date: nil, exclude: [.alerts]).url?.absoluteString).to(equal("https://api.darksky.net/forecast/NO_API_KEY/0.12345,0.12345?lang=en&units=us&exclude=alerts"))
             }
             
-            it("should create multie exclude url") {
+            it("should create multi exclude url") {
                 expect(ApiUrl(location, date: nil, exclude: [.alerts,.current]).url?.absoluteString).to(equal("https://api.darksky.net/forecast/NO_API_KEY/0.12345,0.12345?lang=en&units=us&exclude=alerts,currently"))
+            }
+            
+            it("no api key") {
+                SwiftSky.secret = nil
+                expect(ApiUrl(location, date: nil, exclude: []).url?.absoluteString).to(equal("https://api.darksky.net/forecast/NO_API_KEY/0.12345,0.12345?lang=en&units=us"))
             }
             
         }

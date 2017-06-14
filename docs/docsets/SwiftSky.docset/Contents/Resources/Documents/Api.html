@@ -164,7 +164,7 @@
                 <a href="Structs/Alert.html">Alert</a>
               </li>
               <li class="nav-group-task">
-                <a href="Forecast.html#/s:V8SwiftSky8Metadata">Metadata</a>
+                <a href="Forecast.html#/s:8SwiftSky8MetadataV">Metadata</a>
               </li>
             </ul>
           </li>
@@ -190,9 +190,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V8SwiftSky8SwiftSky"></a>
+                    <a name="/s:8SwiftSkyAAV"></a>
                     <a name="//apple_ref/swift/Struct/SwiftSky" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V8SwiftSky8SwiftSky">SwiftSky</a>
+                    <a class="token" href="#/s:8SwiftSkyAAV">SwiftSky</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -218,9 +218,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C8SwiftSky8Location"></a>
+                    <a name="/s:8SwiftSky8LocationC"></a>
                     <a name="//apple_ref/swift/Class/Location" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C8SwiftSky8Location">Location</a>
+                    <a class="token" href="#/s:8SwiftSky8LocationC">Location</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -246,9 +246,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P8SwiftSky19LocationConvertible"></a>
+                    <a name="/s:8SwiftSky19LocationConvertibleP"></a>
                     <a name="//apple_ref/swift/Protocol/LocationConvertible" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P8SwiftSky19LocationConvertible">LocationConvertible</a>
+                    <a class="token" href="#/s:8SwiftSky19LocationConvertibleP">LocationConvertible</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -275,9 +275,9 @@ a <code><a href="Classes/Location.html">Location</a></code> for <code>SwiftSky.g
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O8SwiftSky6Result"></a>
+                    <a name="/s:8SwiftSky6ResultO"></a>
                     <a name="//apple_ref/swift/Enum/Result" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O8SwiftSky6Result">Result</a>
+                    <a class="token" href="#/s:8SwiftSky6ResultO">Result</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -287,11 +287,9 @@ a <code><a href="Classes/Location.html">Location</a></code> for <code>SwiftSky.g
                       <div class="abstract">
                         <p>Represents the success or failure of the retrieval/processing
 of a <code><a href="Structs/Forecast.html">Forecast</a></code> object from the Dark Sky API.</p>
-
-<p><a href='#possible-implementations' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='possible-implementations'>Possible Implementations</h2></p>
+<h2 id='possible-implementations' class='heading'>Possible Implementations</h2>
 
 <p><strong>A Switch Statement (cleanest)</strong></p>
-
 <pre class="highlight swift"><code><span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
 <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">forecast</span><span class="p">):</span>
    <span class="c1">// do something with the `Forecast`</span>
@@ -301,7 +299,6 @@ of a <code><a href="Structs/Forecast.html">Forecast</a></code> object from the D
 </code></pre>
 
 <p><strong>A Conditional Statement</strong></p>
-
 <pre class="highlight swift"><code><span class="k">if</span> <span class="k">let</span> <span class="nv">forecast</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">response</span> <span class="k">as?</span> <span class="kt">Forecast</span> <span class="p">{</span>
    <span class="c1">// do something with `Forecast`</span>
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="k">let</span> <span class="nv">error</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">error</span> <span class="k">as?</span> <span class="kt">ApiError</span> <span class="p">{</span>
@@ -325,9 +322,9 @@ of a <code><a href="Structs/Forecast.html">Forecast</a></code> object from the D
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O8SwiftSky8ApiError"></a>
+                    <a name="/s:8SwiftSky8ApiErrorO"></a>
                     <a name="//apple_ref/swift/Enum/ApiError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O8SwiftSky8ApiError">ApiError</a>
+                    <a class="token" href="#/s:8SwiftSky8ApiErrorO">ApiError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -337,13 +334,12 @@ of a <code><a href="Structs/Forecast.html">Forecast</a></code> object from the D
                       <div class="abstract">
                         <p>Describes the failure that occured during the
 retrieval/processing of a <code><a href="Structs/Forecast.html">Forecast</a></code> from the Dark Sky API.</p>
-
-<p><a href='#possible-errors' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='possible-errors'>Possible Errors</h2>
+<h2 id='possible-errors' class='heading'>Possible Errors</h2>
 <pre class="highlight plaintext"><code>ApiError.noApiKey
 ApiError.noDataRequested
 ApiError.serverError
 ApiError.invalidJSON(AFError?)
-</code></pre></p>
+</code></pre>
 
                         <a href="Enums/ApiError.html" class="slightly-smaller">See more</a>
                       </div>
@@ -365,9 +361,9 @@ ApiError.invalidJSON(AFError?)
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O8SwiftSky8DataType"></a>
+                    <a name="/s:8SwiftSky8DataTypeO"></a>
                     <a name="//apple_ref/swift/Enum/DataType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O8SwiftSky8DataType">DataType</a>
+                    <a class="token" href="#/s:8SwiftSky8DataTypeO">DataType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -395,8 +391,8 @@ ApiError.invalidJSON(AFError?)
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://github.com/appcompany/SwiftSky" target="_blank" rel="external">App Company.io</a>. All rights reserved. (Last updated: 2017-05-18)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="https://github.com/appcompany/SwiftSky" target="_blank" rel="external">App Company.io</a>. All rights reserved. (Last updated: 2017-06-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

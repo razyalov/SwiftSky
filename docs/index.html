@@ -164,7 +164,7 @@
                 <a href="Structs/Alert.html">Alert</a>
               </li>
               <li class="nav-group-task">
-                <a href="Forecast.html#/s:V8SwiftSky8Metadata">Metadata</a>
+                <a href="Forecast.html#/s:8SwiftSky8MetadataV">Metadata</a>
               </li>
             </ul>
           </li>
@@ -225,7 +225,7 @@
 <li><a href="#contribute">Contribute</a></li>
 <li><a href="#consider-donating">Consider Donating</a></li>
 </ul>
-<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+<h2 id='requirements' class='heading'>Requirements</h2>
 
 <ul>
 <li>A Secret Key from <a href="https://darksky.net/dev/register">darksky.net/dev/register</a></li>
@@ -233,8 +233,8 @@
 <li>Xcode 8.1+</li>
 <li>Swift 3.0+</li>
 </ul>
-<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
-<a href='#cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cocoapods'>CocoaPods</h3>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
 <pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
@@ -248,14 +248,14 @@
 <pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
 
 <span class="n">target</span> <span class="s1">'&lt;Your Target Name&gt;'</span> <span class="k">do</span>
-    <span class="n">pod</span> <span class="s1">'SwiftSky'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
+    <span class="n">pod</span> <span class="s1">'SwiftSky'</span><span class="p">,</span> <span class="s1">'~&gt; 1.1'</span>
 <span class="k">end</span>
 </code></pre>
 
 <p>Then, run the following command:</p>
 <pre class="highlight shell"><code><span class="gp">$ </span>pod install
 </code></pre>
-<a href='#carthage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='carthage'>Carthage</h3>
+<h3 id='carthage' class='heading'>Carthage</h3>
 
 <p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.</p>
 
@@ -265,11 +265,11 @@
 </code></pre>
 
 <p>To integrate SwiftSky into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
-<pre class="highlight plaintext"><code>github "AppCompany/SwiftSky" ~&gt; 1.0
+<pre class="highlight plaintext"><code>github "AppCompany/SwiftSky" ~&gt; 1.2
 </code></pre>
 
 <p>Run <code>carthage update</code> to build the framework and drag the built <code>SwiftSky.framework</code> into your Xcode project.</p>
-<a href='#swift-package-manager' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='swift-package-manager'>Swift Package Manager</h3>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
 
 <p>The <a href="https://swift.org/package-manager/">Swift Package Manager</a> is a tool for automating the distribution of Swift code and is integrated into the <code>swift</code> compiler. It is in early development, but SwiftSky does support its use on supported platforms. </p>
 
@@ -278,8 +278,8 @@
     <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/AppCompany/SwiftSky.git"</span><span class="p">,</span> <span class="nv">majorVersion</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">]</span>
 </code></pre>
-<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
-<a href='#setup' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='setup'>Setup</h3>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='setup' class='heading'>Setup</h3>
 
 <p>First you must import SwiftSky everywhere you require to use it</p>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SwiftSky</span>
@@ -288,7 +288,7 @@
 <p>Then before requesting any forecasts set the secret you got from <a href="https://darksky.net/dev/register">darksky.net/dev/register</a></p>
 <pre class="highlight swift"><code><span class="kt">SwiftSky</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="s">"&lt;DARKSKY_SECRET&gt;"</span>
 </code></pre>
-<a href='#settings' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='settings'>Settings</h3>
+<h3 id='settings' class='heading'>Settings</h3>
 
 <p>Optionally you can set the following settings as you wish (default values shown below)</p>
 <pre class="highlight swift"><code><span class="kt">SwiftSky</span><span class="o">.</span><span class="n">hourAmount</span> <span class="o">=</span> <span class="o">.</span><span class="n">fortyEight</span>
@@ -308,7 +308,7 @@
 <p>For more details on these settings check the <a href="https://appcompany.github.io/SwiftSky">documentation</a></p>
 
 <p>SwiftSky persists all your settings for you throughout a session. Simply set them once at app initialization and your good to go. You can change the settings anytime you want, though they will only be applied to new forecasts being requested.</p>
-<a href='#requesting-a-forecast' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='requesting-a-forecast'>Requesting a Forecast</h3>
+<h3 id='requesting-a-forecast' class='heading'>Requesting a Forecast</h3>
 
 <p>There is one simple but versatile function for requesting forecasts <code>SwiftSky.get()</code>. The function requires you to specify what data you want for which location. The below example displays all possible data types there are. The location accepts a <code>LocationConvertible</code> meaning you can pass it a <code>Location</code>, <code>CLLocation</code>, <code>CLLocationCoordinate2D</code> or a <code>String</code> formatted as such: <code>&quot;&lt;latitude&gt;,&lt;longitude&gt;&quot;</code></p>
 <pre class="highlight swift"><code><span class="kt">SwiftSky</span><span class="o">.</span><span class="nf">get</span><span class="p">([</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="o">.</span><span class="n">minutes</span><span class="p">,</span> <span class="o">.</span><span class="n">hours</span><span class="p">,</span> <span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="o">.</span><span class="n">alerts</span><span class="p">],</span>
@@ -322,7 +322,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<a href='#time-travel' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='time-travel'>Time Travel</h4>
+<h4 id='time-travel' class='heading'>Time Travel</h4>
 
 <p>Time travel requests are also possible simple give the <code>SwiftSky.get</code> function a <code>Date</code> like so:</p>
 <pre class="highlight swift"><code><span class="kt">SwiftSky</span><span class="o">.</span><span class="nf">get</span><span class="p">([</span><span class="o">.</span><span class="n">hours</span><span class="p">],</span>
@@ -332,30 +332,33 @@
     <span class="c1">// handle like a regular forecast call</span>
 <span class="p">}</span>
 </code></pre>
-<a href='#the-forecast-object' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='the-forecast-object'>The Forecast Object</h4>
+<h4 id='the-forecast-object' class='heading'>The Forecast Object</h4>
 
 <p>The details of the <code>Forecast</code> object and all the data it contains can be found <a href="https://appcompany.github.io/SwiftSky/Structs/DataPoint.html#/s:vV8SwiftSky9DataPoint4timeV10Foundation4Date">here</a></p>
-<a href='#tests-amp-documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='tests-amp-documentation'>Tests &amp; Documentation</h2>
+<h2 id='tests-amp-documentation' class='heading'>Tests &amp; Documentation</h2>
 
 <p><a href="https://appcompany.github.io/SwiftSky"><img src="https://appcompany.github.io/SwiftSky/badge.svg" alt="Documentation"></a>
 <a href="https://codecov.io/gh/appcompany/SwiftSky"><img src="https://codecov.io/gh/appcompany/SwiftSky/branch/master/graph/badge.svg" alt="Test Coverage"></a></p>
 
 <p>This framework has been thoroughly tested and documented, as you can see by the badges above. A detailed description of the test coverage can be found <a href="https://codecov.io/gh/appcompany/SwiftSky">here</a>. The full documentation of SwiftSky can be found <a href="https://appcompany.github.io/SwiftSky">here</a></p>
-<a href='#contribute' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contribute'>Contribute</h2>
+<h2 id='contribute' class='heading'>Contribute</h2>
 
 <p>As with every open-source project, contributions are always welcome!</p>
 
-<p>However, please follow these rules:
-- Use the same style as is currently used
-- Write the appropriate documentation for it
-- Make sure everything is tested
-- The code must be 100% open-source</p>
-<a href='#about' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='about'>About</h2>
+<p>However, please follow these rules:</p>
+
+<ul>
+<li>Use the same style as is currently used</li>
+<li>Write the appropriate documentation for it</li>
+<li>Make sure everything is tested</li>
+<li>The code must be 100% open-source</li>
+</ul>
+<h2 id='about' class='heading'>About</h2>
 
 <p><strong>SwiftSky</strong> is developed and maintained by <a href="http://twitter.com/LucaSilverTweet">Luca Silverentand</a>, owner of</p>
 
 <p><a href="https://github.com/appcompany"><img src="https://github.com/appcompany/SwiftSky/raw/assets/banner.png" alt="App Company.io"></a></p>
-<a href='#consider-donating' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='consider-donating'>Consider Donating</h2>
+<h2 id='consider-donating' class='heading'>Consider Donating</h2>
 
 <p>Are you using the framework and would like to see it being maintained and updated? Please consider helping me do exactly that by donating using the button below.</p>
 
@@ -364,8 +367,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://github.com/appcompany/SwiftSky" target="_blank" rel="external">App Company.io</a>. All rights reserved. (Last updated: 2017-05-18)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="https://github.com/appcompany/SwiftSky" target="_blank" rel="external">App Company.io</a>. All rights reserved. (Last updated: 2017-06-14)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

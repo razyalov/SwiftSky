@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 /**
  Contains various properties, representing the average (unless otherwise specified)
@@ -66,6 +67,9 @@ public struct DataPoint {
     /// Time at wich the sun sets
     public let sunset : Date?
     
+    /// Index of the UV level
+    public let uvIndex : Int?
+    
     /// Human-readable summary of this `DataPoint`
     public let summary : String?
     
@@ -82,7 +86,7 @@ public struct DataPoint {
     */
     public let icon : String?
     
-    init(_ json : Dictionary<String, Any>, units : ApiUnitProfile) {
+    init(_ json : Dictionary<String, Any>, units : ApiUnitProfile, origin : CLLocation?) {
 
         let timeStamp = json["time"] as? Double
         time = (timeStamp != nil ? Date(timeIntervalSince1970: timeStamp!) : Date(timeIntervalSince1970: 0))
@@ -138,16 +142,19 @@ public struct DataPoint {
         
         let storm = Storm(
             bearing: (nearestStormBearing != nil ? Bearing(nearestStormBearing!) : nil),
-            distance: (nearestStormDistance != nil ? Distance(nearestStormDistance!, withUnit: units.distance) : nil)
+            distance: (nearestStormDistance != nil ? Distance(nearestStormDistance!, withUnit: units.distance) : nil),
+            origin: origin
         )
         self.nearestStorm = (storm.hasData ? storm : nil)
         
         let windBearing = json["windBearing"] as? Float
         let windSpeed = json["windSpeed"] as? Float
+        let windGust = json["windGust"] as? Float
         
         let wind = Wind(
             bearing: (windBearing != nil ? Bearing(windBearing!) : nil),
-            speed: (windSpeed != nil ? Speed(windSpeed!, withUnit: units.speed) : nil)
+            speed: (windSpeed != nil ? Speed(windSpeed!, withUnit: units.speed) : nil),
+            gust: (windGust != nil ? Speed(windGust!, withUnit: units.speed) : nil)
         )
         self.wind = (wind.hasData ? wind : nil)
         
@@ -177,6 +184,8 @@ public struct DataPoint {
         
         let sunsetTime = json["sunsetTime"] as? Double
         self.sunset = (sunriseTime != nil ? Date(timeIntervalSince1970: sunsetTime!) : nil)
+        
+        self.uvIndex = json["uvIndex"] as? Int
         
         self.summary = json["summary"] as? String
         self.icon = json["icon"] as? String

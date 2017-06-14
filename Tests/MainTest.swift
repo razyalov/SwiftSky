@@ -43,7 +43,7 @@ class EmptyLocationTest : QuickSpec {
             it("should be", closure: {
                 SwiftSky.secret = "fake_key"
                 var success = true
-                waitUntil { done in
+                waitUntil(timeout: 10) { done in
                     SwiftSky.get([.current], at: "") { result in
                         switch result {
                         case .success:
@@ -70,7 +70,7 @@ class NoSecretTest : QuickSpec {
         describe("empty location") {
             it("should be", closure: {
                 var success = true
-                waitUntil { done in
+                waitUntil(timeout: 10) { done in
                     SwiftSky.get([.current], at: "0,0") { result in
                         switch result {
                         case .success:
@@ -98,7 +98,7 @@ class NoDataRequest : QuickSpec {
             it("should be", closure: {
                 SwiftSky.secret = "fake_key"
                 var success = true
-                waitUntil { done in
+                waitUntil(timeout: 10) { done in
                     SwiftSky.get([], at: "0,0") { result in
                         switch result {
                         case .success:
@@ -127,7 +127,7 @@ class NonGetTest : QuickSpec {
                 
                 SwiftSky.secret = "fake_key"
                 var success = true
-                waitUntil { done in
+                waitUntil(timeout: 10) { done in
                     let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
                     SwiftSky.get([.current], at: location) { result in
                         switch result {
@@ -175,7 +175,7 @@ class ServerErrorGet : QuickSpec {
                 it("should load", closure: {
                     SwiftSky.secret = "fake_key"
                     var success = false
-                    waitUntil { done in
+                    waitUntil(timeout: 10) { done in
                         let location = Location(latitude: self.latitude, longitude: self.longitude).asLocation()!
                         SwiftSky.get([.current], at: location) { result in
                             switch result {
@@ -221,7 +221,7 @@ class NoInternetTest : QuickSpec {
                     var success = false
                     var response : Forecast? = nil
                     var error : ApiError? = nil
-                    waitUntil { done in
+                    waitUntil(timeout: 10) { done in
                         let location = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
                         SwiftSky.get([.current], at: location) { result in
                             switch result {
@@ -273,7 +273,7 @@ class RegularGetTest : QuickSpec {
                     SwiftSky.secret = "fake_key"
                     var response : Forecast? = nil
                     var error : ApiError? = nil
-                    waitUntil { done in
+                    waitUntil(timeout: 10) { done in
                         let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
                         SwiftSky.get([.current], at: location) { result in
                             response = result.response
@@ -328,7 +328,7 @@ class NoHeaderGetTest : QuickSpec {
                 it("should load", closure: {
                     SwiftSky.secret = "fake_key"
                     var success = false
-                    waitUntil { done in
+                    waitUntil(timeout: 10) { done in
                         let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
                         SwiftSky.get([.current], at: location) { result in
                             switch result {
@@ -375,7 +375,7 @@ class BareMinimumGetTest : QuickSpec {
                 it("should load", closure: {
                     SwiftSky.secret = "fake_key"
                     var success = false
-                    waitUntil { done in
+                    waitUntil(timeout: 10) { done in
                         let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
                         SwiftSky.get([.current], at: location) { result in
                             switch result {
@@ -401,12 +401,12 @@ class NoApiKeyGetTest : QuickSpec {
     let longitude = -123.41670367098749
     
     override func tearDown() {
-        SwiftSky.secret = nil
         OHHTTPStubs.removeAllStubs()
         super.tearDown()
     }
     
     override func setUp() {
+        SwiftSky.secret = nil
         _ = stub(condition: isHost("api.darksky.net")) { _ in
             return fixture(
                 filePath: OHPathForFile("forecast.json", type(of: self))!,
@@ -422,7 +422,7 @@ class NoApiKeyGetTest : QuickSpec {
                 it("should load", closure: {
                     var response : Forecast? = nil
                     var error : ApiError? = nil
-                    waitUntil { done in
+                    waitUntil(timeout: 10) { done in
                         let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
                         SwiftSky.get([.current], at: location) { result in
                             response = result.response
@@ -430,8 +430,52 @@ class NoApiKeyGetTest : QuickSpec {
                             done()
                         }
                     }
-                    expect(response).toNot(beNil())
-                    expect(error).to(beNil())
+                    expect(response).to(beNil())
+                    expect(error).toNot(beNil())
+                })
+            })
+        }
+    }
+    
+}
+
+class WrongApiKeyGetTest : QuickSpec {
+    
+    let latitude = 47.20296790272209
+    let longitude = -123.41670367098749
+    
+    override func tearDown() {
+        OHHTTPStubs.removeAllStubs()
+        super.tearDown()
+    }
+    
+    override func setUp() {
+        SwiftSky.secret = "2345jkkj89*jkw3rn  njk ih 983 89y3 98ybq3<>"
+        _ = stub(condition: isHost("api.darksky.net")) { _ in
+            return fixture(
+                filePath: OHPathForFile("forecast.json", type(of: self))!,
+                headers: ["Content-Type":"application/json","X-Forecast-API-Calls":"1","X-Response-Time":"0.5"]
+            )
+        }
+        super.setUp()
+    }
+    
+    override func spec() {
+        describe("getting forecast") {
+            context("wrong api key", {
+                it("should not load", closure: {
+                    var response : Forecast? = nil
+                    var error : ApiError? = nil
+                    waitUntil(timeout: 10) { done in
+                        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
+                        SwiftSky.get([.current], at: location) { result in
+                            response = result.response
+                            error = result.error
+                            done()
+                        }
+                    }
+                    expect(response).to(beNil())
+                    expect(error).toNot(beNil())
                 })
             })
         }

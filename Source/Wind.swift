@@ -17,9 +17,13 @@ public struct Wind {
     /// `Speed` of the wind
     public let speed : Speed?
     
+    /// Gust of the wind in `Speed`
+    public let gust : Speed?
+    
     var hasData : Bool {
         if bearing != nil { return true }
         if speed != nil { return true }
+        if gust != nil { return true }
         return false
     }
 }

@@ -61,6 +61,9 @@ public enum PressureUnit {
     
     /// Represents the Hecto Pascal unit [(wikipedia)](https://en.wikipedia.org/wiki/Pascal_(unit))
     case hectopascal
+    
+    /// Represents the Inches of Mercury unit [(wikipedia)](https://en.wikipedia.org/wiki/Inch_of_mercury)
+    case inchesOfMercury
 
 }
 
