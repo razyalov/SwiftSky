@@ -55,7 +55,7 @@ To integrate SwiftSky into your Xcode project using CocoaPods, specify it in you
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'SwiftSky', '~> 1.1'
+    pod 'SwiftSky', '~> 1.3'
 end
 ```
 
