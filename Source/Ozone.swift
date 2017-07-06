@@ -11,13 +11,13 @@ import Foundation
 /// Columnar density of total atmospheric ozone in Dobson units
 public struct Ozone {
     
-    /// `Float` representing atmospheric ozone
-    public let value : Float
+    /// `Double` representing atmospheric ozone
+    public let value : Double
     
     /// Human-readable representation of the atmospheric ozone
     public let label : String
     
-    init(_ value: Float) {
+    public init(_ value: Double) {
         self.value = value
         self.label = "\(value.noDecimal) DU"
     }

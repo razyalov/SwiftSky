@@ -11,8 +11,8 @@ import Foundation
 /// Contains a value, unit and label describing distance
 public struct Distance {
     
-    /// `Float` representing distance
-    private(set) public var value : Float = 0
+    /// `Double` representing distance
+    private(set) public var value : Double = 0
     
     /// `DistanceUnit` of the value
     public let unit : DistanceUnit
@@ -48,11 +48,11 @@ public struct Distance {
      - parameter unit: `DistanceUnit` to convert value to
      - returns: Float
     */
-    public func value(as unit : DistanceUnit) -> Float {
+    public func value(as unit : DistanceUnit) -> Double {
         return convert(value, from: self.unit, to: unit)
     }
     
-    private func convert(_ value : Float, from : DistanceUnit, to : DistanceUnit) -> Float {
+    private func convert(_ value : Double, from : DistanceUnit, to : DistanceUnit) -> Double {
         switch from {
         case .mile:
             switch to {
@@ -101,7 +101,7 @@ public struct Distance {
         }
     }
     
-    init(_ value : Float, withUnit : DistanceUnit) {
+    init(_ value : Double, withUnit : DistanceUnit) {
         unit = SwiftSky.units.distance
         self.value = convert(value, from: withUnit, to: unit)
     }

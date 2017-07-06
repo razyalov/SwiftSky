@@ -79,7 +79,7 @@ $ brew install carthage
 To integrate SwiftSky into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "AppCompany/SwiftSky" ~> 1.2
+github "AppCompany/SwiftSky" ~> 1.3
 ```
 
 Run `carthage update` to build the framework and drag the built `SwiftSky.framework` into your Xcode project.

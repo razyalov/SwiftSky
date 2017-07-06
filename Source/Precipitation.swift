@@ -28,8 +28,8 @@ public enum PrecipitationType : String {
 /// Contains a value, unit and a label describing `Precipitation` intensity
 public struct Intensity {
     
-    /// `Float` representing `Precipitation` intensity
-    private(set) public var value : Float = 0
+    /// `Double` representing `Precipitation` intensity
+    private(set) public var value : Double = 0
     
     /// `PrecipitationUnit` of the value
     public let unit : PrecipitationUnit
@@ -59,11 +59,11 @@ public struct Intensity {
      - parameter unit: `PrecipitationUnit` to convert value to
      - returns: Float
     */
-    public func value(as unit : PrecipitationUnit) -> Float {
+    public func value(as unit : PrecipitationUnit) -> Double {
         return convert(value, from: self.unit, to: unit)
     }
     
-    private func convert(_ value : Float, from : PrecipitationUnit, to : PrecipitationUnit) -> Float {
+    private func convert(_ value : Double, from : PrecipitationUnit, to : PrecipitationUnit) -> Double {
         switch from {
         case .inch:
             switch to {
@@ -82,7 +82,7 @@ public struct Intensity {
         }
     }
     
-    init(_ value : Float, withUnit : PrecipitationUnit) {
+    public init(_ value : Double, withUnit : PrecipitationUnit) {
         unit = SwiftSky.units.precipitation
         self.value = convert(value, from: withUnit, to: unit)
     }
@@ -91,8 +91,8 @@ public struct Intensity {
 /// Contains a value, unit and a label describing accumulation of snowfall
 public struct Accumulation {
     
-    /// `Float` representing accumulation of snowfall
-    private(set) public var value : Float = 0
+    /// `Double` representing accumulation of snowfall
+    private(set) public var value : Double = 0
     
     /// `AccumulationUnit` of the value
     public let unit : AccumulationUnit
@@ -122,11 +122,11 @@ public struct Accumulation {
      - parameter unit: `AccumulationUnit` to convert value to
      - returns: Float
     */
-    public func value(as unit : AccumulationUnit) -> Float {
+    public func value(as unit : AccumulationUnit) -> Double {
         return convert(value, from: self.unit, to: unit)
     }
     
-    private func convert(_ value : Float, from : AccumulationUnit, to : AccumulationUnit) -> Float {
+    private func convert(_ value : Double, from : AccumulationUnit, to : AccumulationUnit) -> Double {
         switch from {
         case .inch:
             switch to {
@@ -145,7 +145,7 @@ public struct Accumulation {
         }
     }
     
-    init(_ value : Float, withUnit : AccumulationUnit) {
+    public init(_ value : Double, withUnit : AccumulationUnit) {
         unit = SwiftSky.units.accumulation
         self.value = convert(value, from: withUnit, to: unit)
     }

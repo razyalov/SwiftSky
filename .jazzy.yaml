@@ -1,5 +1,5 @@
 module: SwiftSky
-module_version: 1.2.0
+module_version: 1.3.0
 xcodebuild_arguments: [-workspace,SwiftSky.xcworkspace,-scheme,SwiftSky iOS]
 sdk: [iphoneos|watchos|appletvos|macosx]
 github_url: https://github.com/appcompany/SwiftSky

@@ -23,7 +23,7 @@ class DecimalTest : QuickSpec {
     
     override func spec() {
         
-        let number : Float = 0.2935784
+        let number : Double = 0.2935784
         
         describe("no decimals") {
             it("should be") { 

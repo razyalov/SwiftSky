@@ -11,8 +11,8 @@ import Foundation
 /// Contains a value, unit and a label describing temperature
 public struct Temperature {
     
-    /// `Float` representing temperature
-    private(set) public var value : Float = 0
+    /// `Double` representing temperature
+    private(set) public var value : Double = 0
     
     /// `TemperatureUnit` of the value
     public let unit : TemperatureUnit
@@ -44,11 +44,11 @@ public struct Temperature {
      - parameter unit: `TemperatureUnit` to convert value to
      - returns: Float
      */
-    public func value(as unit : TemperatureUnit) -> Float {
+    public func value(as unit : TemperatureUnit) -> Double {
         return convert(value, from: self.unit, to: unit)
     }
     
-    private func convert(_ value : Float, from : TemperatureUnit, to : TemperatureUnit) -> Float {
+    private func convert(_ value : Double, from : TemperatureUnit, to : TemperatureUnit) -> Double {
         switch from {
         case .fahrenheit:
             switch to {
@@ -80,7 +80,7 @@ public struct Temperature {
         }
     }
     
-    init(_ value : Float, withUnit : TemperatureUnit) {
+    public init(_ value : Double, withUnit : TemperatureUnit) {
         unit = SwiftSky.units.temperature
         self.value = convert(value, from: withUnit, to: unit)
     }

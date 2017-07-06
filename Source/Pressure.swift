@@ -11,8 +11,8 @@ import Foundation
 /// Contains a value, unit and a label describing atmospheric pressure
 public struct Pressure {
     
-    /// `Float` representing atmospheric pressure
-    private(set) public var value : Float = 0
+    /// `Double` representing atmospheric pressure
+    private(set) public var value : Double = 0
     
     /// `PressureUnit` of the value
     public let unit : PressureUnit
@@ -44,11 +44,11 @@ public struct Pressure {
      - parameter unit: `PressureUnit` to convert value to
      - returns: Float
      */
-    public func value(as unit : PressureUnit) -> Float {
+    public func value(as unit : PressureUnit) -> Double {
         return convert(value, from: self.unit, to: unit)
     }
     
-    private func convert(_ value : Float, from : PressureUnit, to : PressureUnit) -> Float {
+    private func convert(_ value : Double, from : PressureUnit, to : PressureUnit) -> Double {
         switch from {
         case .millibar:
             switch to {
@@ -80,7 +80,7 @@ public struct Pressure {
         }
     }
     
-    init(_ value : Float, withUnit : PressureUnit) {
+    public init(_ value : Double, withUnit : PressureUnit) {
         unit = SwiftSky.units.pressure
         self.value = convert(value, from: withUnit, to: unit)
     }

@@ -91,10 +91,10 @@ public struct DataPoint {
         let timeStamp = json["time"] as? Double
         time = (timeStamp != nil ? Date(timeIntervalSince1970: timeStamp!) : Date(timeIntervalSince1970: 0))
         
-        let apparentTemperature = json["apparentTemperature"] as? Float
-        let apparentTemperatureMax = json["apparentTemperatureMax"] as? Float
+        let apparentTemperature = json["apparentTemperature"] as? Double
+        let apparentTemperatureMax = json["apparentTemperatureMax"] as? Double
         let apparentTemperatureMaxTime = json["apparentTemperatureMaxTime"] as? Double
-        let apparentTemperatureMin = json["apparentTemperatureMin"] as? Float
+        let apparentTemperatureMin = json["apparentTemperatureMin"] as? Double
         let apparentTemperatureMinTime = json["apparentTemperatureMinTime"] as? Double
         
         let apparent = ApparentTemperature(
@@ -105,10 +105,10 @@ public struct DataPoint {
             minTime: (apparentTemperatureMinTime != nil ? Date(timeIntervalSince1970: apparentTemperatureMinTime!) : nil)
         )
         
-        let temperatureJSON = json["temperature"] as? Float
-        let temperatureMax = json["temperatureMax"] as? Float
+        let temperatureJSON = json["temperature"] as? Double
+        let temperatureMax = json["temperatureMax"] as? Double
         let temperatureMaxTime = json["temperatureMaxTime"] as? Double
-        let temperatureMin = json["temperatureMin"] as? Float
+        let temperatureMin = json["temperatureMin"] as? Double
         let temperatureMinTime = json["temperatureMinTime"] as? Double
         
         let temperature = Temperatures(
@@ -121,11 +121,11 @@ public struct DataPoint {
         )
         self.temperature = (temperature.hasData ? temperature : nil)
         
-        let precipAccumulation = json["precipAccumulation"] as? Float
-        let precipIntensity = json["precipIntensity"] as? Float
-        let precipIntensityMax = json["precipIntensityMax"] as? Float
+        let precipAccumulation = json["precipAccumulation"] as? Double
+        let precipIntensity = json["precipIntensity"] as? Double
+        let precipIntensityMax = json["precipIntensityMax"] as? Double
         let precipIntensityMaxTime = json["precipIntensityMaxTime"] as? Double
-        let precipProbability = json["precipProbability"] as? Float
+        let precipProbability = json["precipProbability"] as? Double
 
         let precipitation = Precipitation(
             type: PrecipitationType(rawValue: (json["precipType"] as? String) ?? "none") ?? .none,
@@ -137,8 +137,8 @@ public struct DataPoint {
         )
         self.precipitation = (precipitation.hasData ? precipitation : nil)
         
-        let nearestStormBearing = json["nearestStormBearing"] as? Float
-        let nearestStormDistance = json["nearestStormDistance"] as? Float
+        let nearestStormBearing = json["nearestStormBearing"] as? Double
+        let nearestStormDistance = json["nearestStormDistance"] as? Double
         
         let storm = Storm(
             bearing: (nearestStormBearing != nil ? Bearing(nearestStormBearing!) : nil),
@@ -147,9 +147,9 @@ public struct DataPoint {
         )
         self.nearestStorm = (storm.hasData ? storm : nil)
         
-        let windBearing = json["windBearing"] as? Float
-        let windSpeed = json["windSpeed"] as? Float
-        let windGust = json["windGust"] as? Float
+        let windBearing = json["windBearing"] as? Double
+        let windSpeed = json["windSpeed"] as? Double
+        let windGust = json["windGust"] as? Double
         
         let wind = Wind(
             bearing: (windBearing != nil ? Bearing(windBearing!) : nil),
@@ -158,25 +158,25 @@ public struct DataPoint {
         )
         self.wind = (wind.hasData ? wind : nil)
         
-        let dewPoint = json["dewPoint"] as? Float
+        let dewPoint = json["dewPoint"] as? Double
         self.dewPoint = (dewPoint != nil ? Temperature(dewPoint!, withUnit: units.temperature) : nil)
         
-        let moonPhase = json["moonPhase"] as? Float
+        let moonPhase = json["moonPhase"] as? Double
         self.moon = (moonPhase != nil ? MoonValue(moonPhase!) : nil)
         
-        let pressure = json["pressure"] as? Float
+        let pressure = json["pressure"] as? Double
         self.pressure = (pressure != nil ? Pressure(pressure!, withUnit: units.pressure) : nil)
         
-        let cloudCover = json["cloudCover"] as? Float
+        let cloudCover = json["cloudCover"] as? Double
         self.cloudCover = (cloudCover != nil ? Percentage(cloudCover!) : nil)
         
-        let humidity = json["humidity"] as? Float
+        let humidity = json["humidity"] as? Double
         self.humidity = (humidity != nil ? Percentage(humidity!) : nil)
         
-        let ozone = json["ozone"] as? Float
+        let ozone = json["ozone"] as? Double
         self.ozone = (ozone != nil ? Ozone(ozone!) : nil)
         
-        let visibility = json["visibility"] as? Float
+        let visibility = json["visibility"] as? Double
         self.visibility = (visibility != nil ? Distance(visibility!, withUnit: units.distance) : nil)
         
         let sunriseTime = json["sunriseTime"] as? Double

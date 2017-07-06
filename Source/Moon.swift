@@ -36,14 +36,14 @@ public enum MoonPhase : String {
     case waningCrescent = "waning-crescent"
 }
 
-/// Contains a `MoonPhase`, `Percentage` and `Float` value describing the moon's phase
+/// Contains a `MoonPhase`, `Percentage` and `Double` value describing the moon's phase
 public struct MoonValue {
     
     /**
      Fractional part of the 
      [lunation number](https://en.wikipedia.org/wiki/New_moon#Lunation_Number)
     */
-    public let fraction : Float
+    public let fraction : Double
     
     /**
      Phase of the moon
@@ -66,7 +66,7 @@ public struct MoonValue {
     /// `String` representation of a `MoonPhase`
     public var phaseString : String { return phase.rawValue }
     
-    init(_ value : Float) {
+    init(_ value : Double) {
         fraction = value
         if value == 0 {
             phase = .new

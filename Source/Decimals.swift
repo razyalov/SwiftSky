@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Float {
+extension Double {
     
     var noDecimal : String {
         return String(format: "%.0f", self)

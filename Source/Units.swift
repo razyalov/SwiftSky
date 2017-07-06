@@ -50,6 +50,12 @@ public enum SpeedUnit {
     
     /// Represents the Meter per Second unit [(wikipedia)](https://en.wikipedia.org/wiki/Metre_per_second)
     case meterPerSecond
+    
+    /// Represents the Knot unit [(wikipedia)](https://en.wikipedia.org/wiki/Knot_(unit))
+    case knot
+    
+    /// Represents the Beaufort scale unit (wind only) [(wikipedia)](https://en.wikipedia.org/wiki/Beaufort_scale)
+    case beaufort
 
 }
 
