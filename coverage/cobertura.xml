@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="1.0000000000000000" branch-rate="1.0000000000000000" lines-covered="832" lines-valid="832" branches-covered="0" branches-valid="0" complexity="0.0" timestamp="1499381558" version="Slather 2.4.2">
+<coverage line-rate="1.0000000000000000" branch-rate="1.0000000000000000" lines-covered="832" lines-valid="832" branches-covered="0" branches-valid="0" complexity="0.0" timestamp="1499381815" version="Slather 2.4.2">
   <sources>
     <source>/Users/lucasilverentand/Desktop/swiftsky</source>
   </sources>

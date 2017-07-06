@@ -23,7 +23,8 @@ public struct Bearing {
     /// Human-readable cardinal point representation of `Bearing.degrees`
     public let cardinalLabel : String
     
-    init(_ value : Double) {
+    /// :nodoc:
+    public init(_ value : Double) {
         degrees = Int(round(value))
         zeroToOne = value / 360
         label = "\(degrees)°"

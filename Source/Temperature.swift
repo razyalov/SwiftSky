@@ -80,6 +80,7 @@ public struct Temperature {
         }
     }
     
+    /// :nodoc:
     public init(_ value : Double, withUnit : TemperatureUnit) {
         unit = SwiftSky.units.temperature
         self.value = convert(value, from: withUnit, to: unit)

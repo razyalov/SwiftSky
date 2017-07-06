@@ -82,6 +82,7 @@ public struct Intensity {
         }
     }
     
+    /// :nodoc:
     public init(_ value : Double, withUnit : PrecipitationUnit) {
         unit = SwiftSky.units.precipitation
         self.value = convert(value, from: withUnit, to: unit)
@@ -145,6 +146,7 @@ public struct Accumulation {
         }
     }
     
+    /// :nodoc:
     public init(_ value : Double, withUnit : AccumulationUnit) {
         unit = SwiftSky.units.accumulation
         self.value = convert(value, from: withUnit, to: unit)

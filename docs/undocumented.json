@@ -1,47 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/lucasilverentand/Desktop/swiftsky/Source/Ozone.swift",
-      "line": 20,
-      "symbol": "Ozone.init(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lucasilverentand/Desktop/swiftsky/Source/Precipitation.swift",
-      "line": 85,
-      "symbol": "Intensity.init(_:withUnit:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lucasilverentand/Desktop/swiftsky/Source/Precipitation.swift",
-      "line": 148,
-      "symbol": "Accumulation.init(_:withUnit:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lucasilverentand/Desktop/swiftsky/Source/Pressure.swift",
-      "line": 83,
-      "symbol": "Pressure.init(_:withUnit:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lucasilverentand/Desktop/swiftsky/Source/Speed.swift",
-      "line": 126,
-      "symbol": "Speed.init(_:withUnit:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lucasilverentand/Desktop/swiftsky/Source/Temperature.swift",
-      "line": 83,
-      "symbol": "Temperature.init(_:withUnit:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/lucasilverentand/Desktop/swiftsky"
 }

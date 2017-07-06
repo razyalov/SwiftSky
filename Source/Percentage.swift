@@ -20,6 +20,7 @@ public struct Percentage {
     /// Human-readable representation of the percentage
     public let label : String
     
+    /// :nodoc:
     init(_ value : Double) {
         zeroToOne = value
         self.value = Int(round(value * 100))

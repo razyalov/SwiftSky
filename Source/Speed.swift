@@ -114,7 +114,7 @@ public struct Speed {
         }
     }
     
-    let bftSpeeds : [Double] = [1,7,12,20,31,40,51,62,75,88,103,118,178,250,333,419]
+    private let bftSpeeds : [Double] = [1,7,12,20,31,40,51,62,75,88,103,118,178,250,333,419]
     private func beaufort(_ value: Double, from: SpeedUnit) -> Double {
         let kph = convert(value, from: from, to: .kilometerPerHour)
         for (i,speed) in bftSpeeds.enumerated() {
@@ -123,6 +123,7 @@ public struct Speed {
         return 0
     }
     
+    /// :nodoc:
     public init(_ value : Double, withUnit : SpeedUnit) {
         unit = SwiftSky.units.speed
         self.value = convert(value, from: withUnit, to: unit)

@@ -80,6 +80,7 @@ public struct Pressure {
         }
     }
     
+    /// :nodoc:
     public init(_ value : Double, withUnit : PressureUnit) {
         unit = SwiftSky.units.pressure
         self.value = convert(value, from: withUnit, to: unit)

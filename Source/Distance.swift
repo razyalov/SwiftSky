@@ -101,6 +101,7 @@ public struct Distance {
         }
     }
     
+    /// :nodoc:
     init(_ value : Double, withUnit : DistanceUnit) {
         unit = SwiftSky.units.distance
         self.value = convert(value, from: withUnit, to: unit)

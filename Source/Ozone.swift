@@ -17,6 +17,7 @@ public struct Ozone {
     /// Human-readable representation of the atmospheric ozone
     public let label : String
     
+    /// :nodoc:
     public init(_ value: Double) {
         self.value = value
         self.label = "\(value.noDecimal) DU"
