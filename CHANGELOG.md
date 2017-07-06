@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 - Allowing creation of `Values` from outside of framework
 - Using Double as base for all `Values`
 - Added Beaufort and knot speeds
-- Added by [Luca Silverentand](https://github.com/lucasilverentand)
+  - Added by [Luca Silverentand](https://github.com/lucasilverentand)
 
 ## [1.2.0](https://github.com/appcompany/SwiftSky/releases/tag/1.2.0)
 
