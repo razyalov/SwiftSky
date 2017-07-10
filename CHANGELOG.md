@@ -2,12 +2,18 @@
 All notable changes to this project will be documented in this file.
 `SwiftSky` adheres to [Semantic Versioning](http://semver.org/).
 
-- `1.3.x` Release - [1.3.0](#130) [1.3.1](#131)
+- `1.3.x` Release - [1.3.0](#130) [1.3.1](#131) [1.3.2](#131)
 - `1.2.x` Release - [1.2.0](#120)
 - `1.1.x` Releases - [1.1.0](#110) [1.1.1](#111)
 - `1.0.x` Release - [1.0.0](#100)
 
 ---
+
+## [1.3.2](https://github.com/appcompany/SwiftSky/releases/tag/1.3.2)
+
+#### Fixes
+- Removed unnecessary printing of results to console
+  - Fixed by [Luca Silverentand](https://github.com/lucasilverentand)
 
 ## [1.3.1](https://github.com/appcompany/SwiftSky/releases/tag/1.3.1)
 

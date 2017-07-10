@@ -276,7 +276,6 @@ public struct SwiftSky {
         manager.session.configuration.urlCache = nil
         
         manager.request(url, method: .get, headers: ["Accept-Encoding":"gzip"]).responseJSON { response in
-            print(response)
             switch response.result {
             case .success(let data):
                 completion(.success(Forecast(data, headers: response.response?.allHeaderFields)))

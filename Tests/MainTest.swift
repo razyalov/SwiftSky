@@ -331,7 +331,6 @@ class NoHeaderGetTest : QuickSpec {
                     waitUntil(timeout: 10) { done in
                         let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
                         SwiftSky.get([.current], at: location) { result in
-                            print(result)
                             switch result {
                             case .success:
                                 success = true
