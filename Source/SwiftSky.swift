@@ -271,7 +271,12 @@ public struct SwiftSky {
             return completion(.failure(.noApiKey))
         }
         
-        request(url, method: .get, headers: ["Accept-Encoding":"gzip"]).responseJSON { response in
+        let manager = SessionManager.default
+        manager.session.configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        manager.session.configuration.urlCache = nil
+        
+        manager.request(url, method: .get, headers: ["Accept-Encoding":"gzip"]).responseJSON { response in
+            print(response)
             switch response.result {
             case .success(let data):
                 completion(.success(Forecast(data, headers: response.response?.allHeaderFields)))
