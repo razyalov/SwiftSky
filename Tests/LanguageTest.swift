@@ -26,6 +26,7 @@ class LanguageTest : QuickSpec {
         "es" : "Spanish",
         "et" : "Estonian",
         "fr" : "French",
+        "he" : "Hebrew",
         "hr" : "Croatian",
         "hu" : "Hungarian",
         "id" : "Indonesian",

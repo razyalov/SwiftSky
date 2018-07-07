@@ -24,7 +24,7 @@ import Foundation
  ```swift
  arabic, azerbaijani, belarusian, bulgarian, bosnian,
  catalan, czech, german, greek, english, spanish,
- estonian, french, croatian, hungarian, indonesian,
+ estonian, french, croatian, hebrew, hungarian, indonesian,
  italian, icelandic, cornish, norwegian, dutch, polish,
  portuguese, russian, slovak, slovenian, serbian,
  swedish, tetum, turkish, ukrainian, igpayAtinlay,
@@ -43,7 +43,7 @@ public struct Language {
     /// An array of all Language's available
     public static let allLanguages = [
         arabic, azerbaijani, belarusian, bulgarian, bosnian, catalan, czech, german, greek, english, spanish, estonian, french,
-        croatian, hungarian, indonesian, italian, icelandic, cornish, norwegian, dutch, polish, portuguese, russian, slovak,
+        croatian, hebrew, hungarian, indonesian, italian, icelandic, cornish, norwegian, dutch, polish, portuguese, russian, slovak,
         slovenian, serbian, swedish, tetum, turkish, ukrainian, igpayAtinlay, simplifiedChinese, traditionalChinese
     ]
     
@@ -103,6 +103,9 @@ public struct Language {
     
     /// Represents the Croatian Language
     public static let croatian = Language(shortcode: "hr", humanName: "Croatian")
+    
+    /// Represents the Hebrew Language
+    public static let hebrew = Language(shortcode: "he", humanName: "Hebrew")
     
     /// Represents the Hungarian Language
     public static let hungarian = Language(shortcode: "hu", humanName: "Hungarian")
